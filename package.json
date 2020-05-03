@@ -1,16 +1,14 @@
 {
-  "name": "@alorel/xxxxxxxxxxxxxxxxxxxxxx",
+  "name": "@alorel/preact-static-component",
   "version": "0.0.0",
-  "description": "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "description": "Basic wrapper for components that don't need to rerender",
   "main": "index.js",
-  "module": "esm5/index.js",
-  "esm5": "esm5/index.js",
-  "fesm5": "bundle/fesm5.js",
-  "esm2015": "esm2015/index.js",
-  "fesm2015": "bundle/fesm2015.js",
+  "module": "index.esm5.js",
+  "esm5": "index.esm5.js",
+  "esm2015": "index.esm2015.js",
   "jsdelivr": "bundle/umd.min.js",
   "browser": "bundle/umd.js",
-  "repository": "https://github.com/Alorel/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.git",
+  "repository": "https://github.com/Alorel/preact-static-component.git",
   "types": "index.d.ts",
   "typings": "index.d.ts",
   "author": "Arturas Molcanovas <a.molcanovas@gmail.com>",
@@ -23,6 +21,9 @@
     "rollup:watch": "yarn run rollup --watch",
     "typecheck": "tsc --noEmit --outDir dist",
     "typecheck:watch": "yarn run typecheck --watch"
+  },
+  "peerDependencies": {
+    "preact": "^10.0.0"
   },
   "devDependencies": {
     "@alorel-personal/conventional-changelog-alorel": "^2.1.3",
@@ -41,6 +42,7 @@
     "@semantic-release/npm": "^7.0.5",
     "@types/node": "^13.13.4",
     "custom-tslint-formatters": "^2.4.0",
+    "preact": "10.0.0",
     "rollup": "^2.7.6",
     "semantic-release": "^17.0.7",
     "terser": "^4.6.13",
