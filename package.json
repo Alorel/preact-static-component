@@ -1,6 +1,6 @@
 {
   "name": "@alorel/preact-static-component",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Basic wrapper for components that don't need to rerender",
   "main": "index.js",
   "module": "index.esm5.js",
