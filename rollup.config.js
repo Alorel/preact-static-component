@@ -9,8 +9,10 @@ import {dtsPlugin} from '@alorel/rollup-plugin-dts';
 import * as pkgJson from './package.json';
 import {fastTscPlugin} from "@alorel/rollup-plugin-fast-tsc";
 
-const umdName = 'MyLibrary';
-const umdGlobals = {};
+const umdName = 'PreactStaticComponent';
+const umdGlobals = {
+  preact: 'preact'
+};
 
 const distDir = join(__dirname, 'dist');
 const srcDir = join(__dirname, 'src');
@@ -46,8 +48,8 @@ const baseSettings = {
 
 const baseOutput = {
   entryFileNames: '[name].js',
-  assetFileNames: '[name][extname]',
-  sourcemap: false
+  sourcemap: false,
+  dir: distDir
 };
 
 export default ({watch}) => [
@@ -56,7 +58,6 @@ export default ({watch}) => [
     input: baseInput,
     output: {
       ...baseOutput,
-      dir: distDir,
       format: 'cjs',
       plugins: [
         copyPkgJsonPlugin({
@@ -92,7 +93,7 @@ export default ({watch}) => [
     output: {
       ...baseOutput,
       format: 'es',
-      dir: join(distDir, 'esm2015')
+      entryFileNames: '[name].esm2015.js'
     },
     plugins: [
       mkNodeResolve(),
@@ -105,45 +106,11 @@ export default ({watch}) => [
     output: {
       ...baseOutput,
       format: 'es',
-      dir: join(distDir, 'esm5')
+      entryFileNames: '[name].esm5.js',
     },
     plugins: [
       mkNodeResolve(),
       fastTscPlugin({extraCliArgs: ['--target', 'es5']})
-    ]
-  },
-  {
-    ...baseSettings,
-    preserveModules: false,
-    output: [
-      {
-        ...baseOutput,
-        banner: () => banner$,
-        dir: bundleDir,
-        entryFileNames: 'fesm5.js',
-        format: 'es',
-      }
-    ],
-    plugins: [
-      mkNodeResolve(),
-      fastTscPlugin({extraCliArgs: ['--target', 'es5']})
-    ]
-  },
-  {
-    ...baseSettings,
-    preserveModules: false,
-    output: [
-      {
-        ...baseOutput,
-        banner: () => banner$,
-        dir: bundleDir,
-        entryFileNames: 'fesm2015.js',
-        format: 'es',
-      }
-    ],
-    plugins: [
-      mkNodeResolve(),
-      fastTscPlugin()
     ]
   },
   {
