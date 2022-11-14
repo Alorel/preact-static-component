@@ -18,7 +18,7 @@ jobs:
           - 13.x
           - 12.x
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout
         with:
           fetch-depth: 1
