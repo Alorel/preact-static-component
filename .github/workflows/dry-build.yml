@@ -36,7 +36,7 @@ jobs:
           path: node_modules
           restore-keys: |
             v1-${{ matrix.os }}-${{ matrix.node }}-refs/heads/master-node_modules
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         name: Set up node
         with:
           node-version: ${{ matrix.node }}

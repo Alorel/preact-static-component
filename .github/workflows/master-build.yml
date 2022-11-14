@@ -32,7 +32,7 @@ jobs:
         with:
           key: ${{ matrix.os }}-${{ matrix.node }}-${{ github.ref }}-node_modules
           path: node_modules
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         name: Set up node
         with:
           node-version: ${{ matrix.node }}
@@ -77,7 +77,7 @@ jobs:
         with:
           key: ubuntu-latest-14.x-${{ github.ref }}-node_modules
           path: node_modules
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         name: Set up node
         with:
           node-version: 14.x
