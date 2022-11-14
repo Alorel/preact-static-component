@@ -23,12 +23,12 @@ jobs:
         with:
           fetch-depth: 100
       - name: Cache yarn
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           key: ${{ matrix.os }}-${{ matrix.node }}-${{ github.ref }}-yarn
           path: .yarn/cache
       - name: Cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           key: ${{ matrix.os }}-${{ matrix.node }}-${{ github.ref }}-node_modules
           path: node_modules
@@ -68,12 +68,12 @@ jobs:
         with:
           fetch-depth: 100
       - name: Cache yarn
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           key: ubuntu-latest-14.x-${{ github.ref }}-yarn
           path: .yarn/cache
       - name: Cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           key: ubuntu-latest-14.x-${{ github.ref }}-node_modules
           path: node_modules
